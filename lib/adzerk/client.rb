@@ -61,12 +61,17 @@ module Adzerk
     end
 
     def create_creative(data={}, image_path='')
-      response = RestClient.post(@config[:host] + 'creative',
-                                 {:creative => camelize_data(data).to_json},
-                                 :X_Adzerk_ApiKey => @api_key,
-                                 :content_type => :json,
-                                 :accept => :json)
-      response = upload_creative(JSON.parse(response)["Id"], image_path) unless image_path.empty?
+      response = HTTParty.post(
+        @config[:host] + 'creative',
+        headers: {
+          'X-Adzerk-ApiKey' => @api_key
+        },
+        body: {
+          :creative => camelize_data(data).to_json
+        }
+      )
+
+      response = upload_creative(response["Id"], image_path) unless image_path.empty?
       response
     end
 

@@ -5,7 +5,7 @@ module Adzerk
 
     def create(data= {}, imagepath='')
       response = @client.create_creative(data, imagepath)
-      uncamelize_data(JSON.parse(response))
+      uncamelize_data(response)
     end
 
     def list(advertiserId)

@@ -8,10 +8,14 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     diff-lcs (1.2.5)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     json (1.8.1)
     mime-types (2.4.3)
     minitest (5.4.3)
+    multi_xml (0.5.5)
     netrc (0.8.0)
     rake (10.3.2)
     rest-client (1.7.2)
@@ -38,7 +42,11 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (>= 3.2.8)
+  httparty
   json
   rake
   rest-client
   rspec
+
+BUNDLED WITH
+   1.11.2
